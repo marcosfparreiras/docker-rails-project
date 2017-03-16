@@ -47,6 +47,8 @@ class CreatePlayers < ActiveRecord::Migration[5.0]
       t.integer :platform_parcels
       t.text :platform_notes
 
+      t.boolean :active, default: true
+
       t.timestamps
     end
   end

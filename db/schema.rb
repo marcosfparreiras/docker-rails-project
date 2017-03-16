@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20170315015525) do
     t.date     "birthday"
     t.string   "cpf"
     t.string   "rg"
-    t.string   "phones",                default: [],              array: true
+    t.string   "phones",                default: [],                array: true
     t.string   "email"
     t.string   "address_street"
     t.string   "address_number"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20170315015525) do
     t.string   "address_state"
     t.string   "responsible_name"
     t.string   "responsible_cpf"
-    t.string   "responsible_phones",    default: [],              array: true
+    t.string   "responsible_phones",    default: [],                array: true
     t.string   "responsible_email"
     t.string   "sport_name"
     t.string   "headquarter"
@@ -65,8 +65,9 @@ ActiveRecord::Schema.define(version: 20170315015525) do
     t.string   "platform_payment_mode"
     t.integer  "platform_parcels"
     t.text     "platform_notes"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.boolean  "active",                default: true
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.integer  "plan_id"
     t.index ["plan_id"], name: "index_players_on_plan_id", using: :btree
   end

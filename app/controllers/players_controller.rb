@@ -24,7 +24,9 @@ class PlayersController < ApplicationController
   # POST /players
   # POST /players.json
   def create
+    plan_id = params[:player].delete(:plan_id)
     @player = Player.new(player_params)
+    @player.plan = Plan.find(plan_id)
 
     respond_to do |format|
       if @player.save
@@ -62,13 +64,49 @@ class PlayersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_player
-      @player = Player.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def player_params
-      params.require(:player).permit(:name, :birthday)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_player
+    @player = Player.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def player_params
+    params.require(:player).permit(
+      :name,
+      :birthday,
+      :cpf,
+      :rg,
+      :phones,
+      :email,
+      :address_street,
+      :address_number,
+      :address_complement,
+      :address_neighborhood,
+      :address_cep,
+      :address_city,
+      :address_state,
+      :responsible_name,
+      :responsible_cpf,
+      :responsible_phones,
+      :responsible_email,
+      :sport_name,
+      :headquarter,
+      :conclusion_date,
+      :travel_date,
+      :signing_situation,
+      :signing_value,
+      :signing_payment_mode,
+      :advisory_situation,
+      :advisory_value,
+      :advisory_payment_mode,
+      :advisory_notes,
+      :plan_end_date,
+      :platform_payment_mode,
+      :platform_payment_mode,
+      :platform_parcels,
+      :platform_notes,
+      :active
+    )
+  end
 end
