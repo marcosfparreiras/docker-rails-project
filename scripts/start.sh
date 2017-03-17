@@ -15,7 +15,12 @@ bundle exec rails db:seed
 
 # Precompile
 if [ "$RAILS_ENV" == "production" ]; then
-  rails assets:precompile
+  bundle exec rails assets:precompile
+  bundle exec rails server -b 0.0.0.0 -p 80
 fi
 # Run server
-bundle exec rails server -b 0.0.0.0 -p 80
+
+if [ "$RAILS_ENV" == "development" ]; then
+  bundle exec rails server -e development -b 0.0.0.0 -p 80
+fi
+

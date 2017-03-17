@@ -1,6 +1,14 @@
 class PlayersController < ApplicationController
   before_action :set_player, only: [:show, :edit, :update, :destroy]
 
+  def active
+    @players = Player.active
+  end
+
+  def inactive
+    @players = Player.inactive
+  end
+
   # GET /players
   # GET /players.json
   def index

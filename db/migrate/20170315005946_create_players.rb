@@ -43,7 +43,6 @@ class CreatePlayers < ActiveRecord::Migration[5.0]
       # plan
       t.date :plan_end_date
       t.string :platform_payment_mode
-      t.string :platform_payment_mode
       t.integer :platform_parcels
       t.text :platform_notes
 
