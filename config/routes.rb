@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :documents
+  resources :document_types
   resources :plans
   resources :admins
 

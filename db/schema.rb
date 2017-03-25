@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170315015525) do
+ActiveRecord::Schema.define(version: 20170323030350) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,26 @@ ActiveRecord::Schema.define(version: 20170315015525) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "document_types", force: :cascade do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "documents", force: :cascade do |t|
+    t.integer  "status",           default: 0
+    t.string   "path"
+    t.text     "note"
+    t.integer  "document_type_id"
+    t.integer  "player_id"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["document_type_id"], name: "index_documents_on_document_type_id", using: :btree
+    t.index ["player_id"], name: "index_documents_on_player_id", using: :btree
   end
 
   create_table "plans", force: :cascade do |t|
@@ -72,5 +92,7 @@ ActiveRecord::Schema.define(version: 20170315015525) do
     t.index ["plan_id"], name: "index_players_on_plan_id", using: :btree
   end
 
+  add_foreign_key "documents", "document_types"
+  add_foreign_key "documents", "players"
   add_foreign_key "players", "plans"
 end

@@ -3,6 +3,7 @@ class Player < ApplicationRecord
   validates :email, presence: true, uniqueness: true
 
   belongs_to :plan
+  has_many :documents
 
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where(active: false) }
