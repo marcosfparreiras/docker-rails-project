@@ -84,3 +84,15 @@ Player.create(
   active: true,
   plan_id: p2.id
 )
+
+DocumentType.create(
+  name: 'Transcript High School',
+  slug: 'passport',
+  description: 'This is your High School Transcript in English'
+)
+
+DocumentType.create(
+  name: 'Transcript University',
+  slug: 'translated_transcirpt_univ',
+  description: 'This is your University Transcript in English'
+)

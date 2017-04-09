@@ -3,8 +3,10 @@ class Document < ApplicationRecord
   belongs_to :document_type
   belongs_to :player
 
+  scope :pending, -> { where(status: STATUS_PENDING) }
+
   STATUS_MISSING = 0
-  STATUS_PENDENT = 1
+  STATUS_PENDING = 1
   STATUS_OK = 2
 
   def missing?
@@ -17,5 +19,11 @@ class Document < ApplicationRecord
 
   def ok?
     status == 2
+  end
+
+  def status_name
+    return 'missing' if status == 0
+    return 'pending' if status == 1
+    return 'ok' if status == 2
   end
 end

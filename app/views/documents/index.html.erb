@@ -5,10 +5,9 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
       <th>Status</th>
       <th>Path</th>
-      <th>Document type</th>
+      <th>Document type name</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,10 +15,9 @@
   <tbody>
     <% @documents.each do |document| %>
       <tr>
-        <td><%= document.name %></td>
         <td><%= document.status %></td>
         <td><%= document.path %></td>
-        <td><%= document.document_type %></td>
+        <td><%= document.document_type.name %></td>
         <td><%= link_to 'Show', document %></td>
         <td><%= link_to 'Edit', edit_document_path(document) %></td>
         <td><%= link_to 'Destroy', document, method: :delete, data: { confirm: 'Are you sure?' } %></td>

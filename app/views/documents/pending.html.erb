@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Pending Documents</h1>
+<% p @pending_docs %>
+<% unless @pending_docs.empty? %>
+  <% @pending_docs.each do |doc| %>
+    <div>
+      Document Name: <%= doc.document_type.name %><br>
+      Player Name: <%= doc.player.name %><br>
+      <%= link_to 'View Pending Document', edit_document_path(doc) %><br>
+    </div><br>
+  <% end %>
+<% else %>
+  <p>There is no pending document</p>
+<% end %>

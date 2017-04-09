@@ -1,0 +1,14 @@
+<h1>Analyze Pending Document</h1>
+
+<%= form_tag edit_pending do %>
+
+  <p>Document Name: <%= @document.document_type.name %></p>
+  <p>Player Name: <%= @document.player.name %></p>
+  <p>Document Path: FILE</p>
+  <p>Leave your notes about this document:</p>
+  <%= text_area_tag(:email, 'notes about this document', cols: 80, rows: 7) %>
+  <p>
+    <%= submit_tag "Approve" %>
+    <%= submit_tag "Dispprove" %>
+  </p>
+<% end -%>

@@ -11,19 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :status %>
-    <%= f.number_field :status %>
-  </div>
+  Document Name: <%= @document.document_type.name %><br>
+  Status: <%= @document.status_name.capitalize %><br>
+  File: <%= @document.path %><br>
 
   <div class="field">
-    <%= f.label :path %>
-    <%= f.text_field :path %>
-  </div>
-
-  <div class="field">
-    <%= f.label :document_type_id %>
-    <%= f.text_field :document_type_id %>
+    <%= f.label :note %>
+    <%= f.text_area :note %>
   </div>
 
   <div class="actions">

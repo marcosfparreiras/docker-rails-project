@@ -29,12 +29,12 @@ RSpec.describe Document, type: :model do
       expect(doc.missing?).to eq(true)
     end
 
-    it 'retrns pendent? = true when status equals to 1' do
+    it 'returns pendent? = true when status equals to 1' do
       doc = Document.new(status: 1)
       expect(doc.pending?).to eq(true)
     end
 
-    it 'retrns ok? = true when status equals to 2' do
+    it 'returns ok? = true when status equals to 2' do
       doc = Document.new(status: 2)
       expect(doc.ok?).to eq(true)
     end
@@ -56,7 +56,29 @@ RSpec.describe Document, type: :model do
     it 'relates document to document_type' do
       expect(@document.document_type).to eq(@doc_type)
     end
+  end
 
+  context 'scopes' do
+    before :all do
+      @doc1 = Document.create(status: 0, document_type: @doc_type, player: @player)
+      @doc2 = Document.create(status: 0, document_type: @doc_type, player: @player)
+      @doc3 = Document.create(status: 1, document_type: @doc_type, player: @player)
+      @doc4 = Document.create(status: 1, document_type: @doc_type, player: @player)
+      @doc5 = Document.create(status: 2, document_type: @doc_type, player: @player)
+      @doc6 = Document.create(status: 2, document_type: @doc_type, player: @player)
+    end
+    describe 'pending' do
+      before :all do
+        @pending = Document.pending
+      end
 
+      it 'returns only Document with status pending' do
+        expect(@pending.count).to eq(2)
+      end
+
+      it 'returns only Document with doc3 and doc4' do
+        expect(@pending).to include(@doc3)
+      end
+    end
   end
 end

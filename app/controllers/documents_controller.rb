@@ -1,6 +1,14 @@
 class DocumentsController < ApplicationController
   before_action :set_document, only: [:show, :edit, :update, :destroy]
 
+  # def pending
+  #   @pending_docs = Document.pending
+  # end
+
+  # GET /documents/1/analyze_pending
+  # def analyze_pending
+  # end
+
   # GET /documents
   # GET /documents.json
   def index
@@ -69,6 +77,6 @@ class DocumentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def document_params
-      params.require(:document).permit(:name, :status, :path, :document_type_id)
+      params.require(:document).permit(:status, :path, :document_type_id)
     end
 end
