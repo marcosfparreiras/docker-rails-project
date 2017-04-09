@@ -116,12 +116,12 @@
 
   <div class="field">
     <%= f.label :conclusion_date %>
-    <%= f.text_field :conclusion_date %>
+    <%= f.date_select :conclusion_date %>
   </div>
 
   <div class="field">
     <%= f.label :travel_date %>
-    <%= f.text_field :travel_date %>
+    <%= f.date_select :travel_date %>
   </div>
 
   <hr>
@@ -160,7 +160,7 @@
 
   <div class="field">
     <%= f.label :advisory_notes %>
-    <%= f.text_field :advisory_notes %>
+    <%= f.text_area :advisory_notes, cols: "40", rows: "5" %>
   </div>
 
   <hr>
@@ -173,7 +173,7 @@
 
   <div class="field">
     <%= f.label :plan_end_date %>
-    <%= f.text_field :plan_end_date %>
+    <%= f.date_select :plan_end_date %>
   </div>
 
   <div class="field">
@@ -188,12 +188,12 @@
 
   <div class="field">
     <%= f.label :platform_parcels %>
-    <%= f.text_field :platform_parcels %>
+    <%= f.number_field :platform_parcels %>
   </div>
 
   <div class="field">
     <%= f.label :platform_notes %>
-    <%= f.text_field :platform_notes %>
+    <%= f.text_area :platform_notes, cols: "40", rows: "5" %>
   </div>
 
 
