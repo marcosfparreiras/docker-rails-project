@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>AE Academy</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all',
                                               'data-turbolinks-track': 'reload' %>
@@ -14,6 +15,7 @@
     <% if logged_in? %>
     <header class="navbar navbar-fixed-top navbar-inverse">
       <div class="container">
+        AE Academy
         <nav>
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "Jogadores Ativos", active_players_path %></li>
