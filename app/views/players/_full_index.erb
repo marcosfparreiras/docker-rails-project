@@ -1,13 +1,40 @@
 <table class="table table-hover">
 <tr>
-<% Player::LABELS.values.each do |value| %>
+
+
+<%
+  all_labels = ['Status'].concat(Player::LABELS.values)
+  all_labels.each do |value|
+%>
   <th><%= value %></th>
 <% end %>
 </tr>
 <% @players.each do |player| %>
+  <%
+    #activate_name = player.active? ? 'Deactivate' : 'Activate'
+    activate_link =
+      if player.active?
+        link_to 'Deactivate', deactivate_player_path(player),
+          method: :put,
+          remote: true
+      else
+        link_to 'Activate', activate_player_path(player),
+          method: :put,
+          remote: true
+      end
+  %>
   <tr>
-    <% Player::METHODS.each do |_attr, method| %>
-      <td><%= player.send(method) %></td>
+    <%
+      all_attributes = ['activate'].concat(Player::METHODS.values)
+      all_attributes.each_with_index do |method, i|
+    %>
+      <td><%=
+        if i > 0
+          player.send(method)
+        else
+          activate_link
+        end
+      %></td>
     <% end %>
   </tr>
 <% end %>

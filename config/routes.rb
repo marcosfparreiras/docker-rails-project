@@ -14,6 +14,11 @@ Rails.application.routes.draw do
       get 'active'
       get 'inactive'
     end
+
+    member do
+      put 'activate'
+      put 'deactivate'
+    end
   end
 
   namespace :documents do

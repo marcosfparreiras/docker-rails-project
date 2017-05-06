@@ -1,5 +1,7 @@
 class PlayersController < ApplicationController
-  before_action :set_player, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :verify_authenticity_token, only: [:activate, :deactivate]
+  skip_before_filter :require_login, only: [:activate, :deactivate]
+  before_action :set_player, only: [:show, :edit, :update, :destroy, :activate, :deactivate]
 
   def active
     @players = Player.active
@@ -7,6 +9,14 @@ class PlayersController < ApplicationController
 
   def inactive
     @players = Player.inactive
+  end
+
+  def activate
+    @player.activate
+  end
+
+  def deactivate
+    @player.deactivate
   end
 
   # GET /players

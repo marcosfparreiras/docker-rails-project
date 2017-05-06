@@ -8,6 +8,13 @@ class Player < ApplicationRecord
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where(active: false) }
 
+  def activate
+    update(active: true)
+  end
+
+  def deactivate
+    update(active: false)
+  end
 
   def print_phones
     format_phones(phones)
@@ -46,13 +53,14 @@ class Player < ApplicationRecord
   end
 
   def format_date(date)
+    return '' unless date
     date.strftime('%d/%m/%Y')
   end
 
   def format_currency(value)
+    return '' unless value
     "R$ #{format('%.2f', value.to_f)}"
   end
-
 
   # def labels
   LABELS = {

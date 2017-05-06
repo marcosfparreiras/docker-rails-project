@@ -96,3 +96,11 @@ DocumentType.create(
   slug: 'translated_transcirpt_univ',
   description: 'This is your University Transcript in English'
 )
+
+Admin.create(
+  name: 'Admin Teste',
+  email: 'admin@test.com',
+  role: 'admin',
+  password: 'mypass',
+  password_confirmation: 'mypass',
+)
