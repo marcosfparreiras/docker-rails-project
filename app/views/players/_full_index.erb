@@ -16,11 +16,13 @@
       if player.active?
         link_to 'Deactivate', deactivate_player_path(player),
           method: :put,
-          remote: true
+          remote: true,
+          id: "deactivate_player_#{player.id}"
       else
         link_to 'Activate', activate_player_path(player),
           method: :put,
-          remote: true
+          remote: true,
+          id: "activate_player_#{player.id}"
       end
   %>
   <tr>

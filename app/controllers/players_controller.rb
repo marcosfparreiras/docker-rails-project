@@ -13,10 +13,16 @@ class PlayersController < ApplicationController
 
   def activate
     @player.activate
+    respond_to do |format|
+      format.js
+    end
   end
 
   def deactivate
     @player.deactivate
+    respond_to do |format|
+      format.js
+    end
   end
 
   # GET /players
