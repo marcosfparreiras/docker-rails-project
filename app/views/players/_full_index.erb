@@ -1,9 +1,7 @@
 <table class="table table-hover">
 <tr>
-
-
 <%
-  all_labels = ['Status'].concat(Player::LABELS.values)
+  all_labels = [''].concat(Player::LABELS.values)
   all_labels.each do |value|
 %>
   <th><%= value %></th>
@@ -11,18 +9,19 @@
 </tr>
 <% @players.each do |player| %>
   <%
-    #activate_name = player.active? ? 'Deactivate' : 'Activate'
     activate_link =
       if player.active?
         link_to 'Deactivate', deactivate_player_path(player),
           method: :put,
           remote: true,
-          id: "deactivate_player_#{player.id}"
+          id: "deactivate_player_#{player.id}",
+          class: 'btn btn-danger btn-sm'
       else
         link_to 'Activate', activate_player_path(player),
           method: :put,
           remote: true,
-          id: "activate_player_#{player.id}"
+          id: "activate_player_#{player.id}",
+          class: 'btn btn-success btn-sm'
       end
   %>
   <tr>
