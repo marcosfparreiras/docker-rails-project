@@ -60,6 +60,7 @@ RSpec.describe Document, type: :model do
 
   context 'scopes' do
     before :all do
+      Document.destroy_all
       @doc1 = Document.create(status: 0, document_type: @doc_type, player: @player)
       @doc2 = Document.create(status: 0, document_type: @doc_type, player: @player)
       @doc3 = Document.create(status: 1, document_type: @doc_type, player: @player)

@@ -1,5 +1,5 @@
 class Plan < ApplicationRecord
-  validates :name, presence: true
+  validates :name, presence: true , uniqueness: true
   validates :value, presence: true
 
   has_many :players
