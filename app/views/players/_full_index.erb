@@ -15,13 +15,19 @@
           method: :put,
           remote: true,
           id: "deactivate_player_#{player.id}",
-          class: 'btn btn-danger btn-sm'
+          class: 'btn btn-danger btn-sm',
+          data: {
+            :confirm => "Are you sure you want to deactivate #{player.name}?"
+          }
       else
         link_to 'Activate', activate_player_path(player),
           method: :put,
           remote: true,
           id: "activate_player_#{player.id}",
-          class: 'btn btn-success btn-sm'
+          class: 'btn btn-success btn-sm',
+          data: {
+            :confirm => "Are you sure you want to activate #{player.name}?"
+          }
       end
   %>
   <tr>
