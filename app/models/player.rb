@@ -5,8 +5,8 @@ class Player < ApplicationRecord
   belongs_to :plan
   has_many :documents
 
-  scope :active, -> { where(active: true) }
-  scope :inactive, -> { where(active: false) }
+  scope :active, -> { where(active: true).order(name: :asc) }
+  scope :inactive, -> { where(active: false).order(name: :asc) }
 
   def activate
     update(active: true)
