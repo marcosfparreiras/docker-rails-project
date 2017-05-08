@@ -1,0 +1,15 @@
+version: '2'
+services:
+  db:
+    image: postgres
+  web:
+    image: macosfparreiras/rails-postgres:beta-0.4
+    command: scripts/start.sh
+    ports:
+      - "3000:80"
+    depends_on:
+      - db
+    environment:
+      - RAILS_ENV=production
+      - SECRET_KEY_BASE=f81577a0d3b585716c66cc93cc2bcd48e905d193666ce9bab1a936329caca1e5be165ffa03547e3fa28ad8b0eafb80e00576ad41637c4e40bff89f63da9110a2
+      - RAILS_SERVE_STATIC_FILES=true
