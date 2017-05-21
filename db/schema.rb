@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170323030350) do
+ActiveRecord::Schema.define(version: 20170520185716) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 20170323030350) do
     t.string   "sport_name"
     t.string   "headquarter"
     t.date     "conclusion_date"
-    t.date     "travel_date"
+    t.string   "travel_date"
     t.string   "signing_situation"
     t.decimal  "signing_value"
     t.string   "signing_payment_mode"

@@ -49,8 +49,11 @@ class PlayersController < ApplicationController
   # POST /players.json
   def create
     plan_id = params[:player].delete(:plan_id)
+    travel_date_year = params[:player].delete(:travel_date_year)
+    travel_date_season = params[:player].delete(:travel_date_season)
     @player = Player.new(player_params)
     @player.plan = Plan.find(plan_id)
+    @player.travel_date = "#{travel_date_season}/#{travel_date_year}"
 
     respond_to do |format|
       if @player.save
@@ -117,7 +120,6 @@ class PlayersController < ApplicationController
       :sport_name,
       :headquarter,
       :conclusion_date,
-      :travel_date,
       :signing_situation,
       :signing_value,
       :signing_payment_mode,

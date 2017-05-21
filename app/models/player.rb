@@ -32,10 +32,6 @@ class Player < ApplicationRecord
     format_date(conclusion_date)
   end
 
-  def print_travel_date
-    format_date(travel_date)
-  end
-
   def print_plan_end_date
     format_date(plan_end_date)
   end
@@ -122,7 +118,7 @@ class Player < ApplicationRecord
     sport_name: :sport_name,
     headquarter: :headquarter,
     conclusion_date: :print_conclusion_date,
-    travel_date: :print_travel_date,
+    travel_date: :travel_date,
     signing_situation: :signing_situation,
     signing_value: :signing_value,
     signing_payment_mode: :signing_payment_mode,

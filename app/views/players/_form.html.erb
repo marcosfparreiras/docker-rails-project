@@ -21,7 +21,10 @@
 
   <div class="field">
     <%= f.label :birthday %>
-    <%= f.date_select :birthday %>
+    <%= f.date_select :birthday,
+          start_year: Date.today.year - 25,
+          end_year: Date.today.year - 10
+    %>
   </div>
 
   <div class="field">
@@ -120,8 +123,12 @@
   </div>
 
   <div class="field">
-    <%= f.label :travel_date %>
-    <%= f.date_select :travel_date %>
+    <%
+      seasons = ['Summer', 'Fall', 'Winter', 'Spring'].map { |s| [s, s] }
+      years = (2010..2030).map { |y| [y, y] }
+    %>
+    <%= select_tag("player[travel_date_season]", options_for_select(seasons)) %>
+    <%= select_tag("player[travel_date_year]", options_for_select(years)) %>
   </div>
 
   <hr>
