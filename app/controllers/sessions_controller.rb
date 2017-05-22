@@ -5,10 +5,13 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = Admin.find_by(email: params[:session][:email].downcase)
+    email = params[:session][:email].downcase
+    user = Admin.find_by(email: email) || Player.find_by(email: email)
     if user && user.authenticate(params[:session][:password])
       log_in user
-      redirect_to active_players_path
+      class_name = user.class.name
+      redirect_to active_players_path if user.is_a?(Admin)
+      redirect_to player_path(user.id) if user.is_a?(Player)
     else
       flash.now[:danger] = 'Invalid email/password combination'
       render 'new'

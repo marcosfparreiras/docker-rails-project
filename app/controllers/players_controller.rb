@@ -54,6 +54,7 @@ class PlayersController < ApplicationController
     @player = Player.new(player_params)
     @player.plan = Plan.find(plan_id)
     @player.travel_date = "#{travel_date_season}/#{travel_date_year}"
+    @player.password = params[:player][:email]
 
     respond_to do |format|
       if @player.save

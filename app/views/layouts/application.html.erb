@@ -18,10 +18,14 @@
         AE Academy
         <nav>
           <ul class="nav navbar-nav navbar-left">
-            <li><%= link_to "Active Players", active_players_path %></li>
-            <li><%= link_to "Inactive Players", inactive_players_path %></li>
-            <li><%= link_to "Register Player", new_player_path %></li>
-            <li><%= link_to "Plans", plans_path %></li>
+            <% if current_user.is_a?(Admin) %>
+              <li><%= link_to "Active Players", active_players_path %></li>
+              <li><%= link_to "Inactive Players", inactive_players_path %></li>
+              <li><%= link_to "Register Player", new_player_path %></li>
+              <li><%= link_to "Plans", plans_path %></li>
+            <% elsif current_user.is_a?(Player) %>
+              <li><%= link_to "My Profile", player_path(current_user.id) %></li>
+            <% end %>
             <li><%= link_to "Log out", logout_path, method: :delete %></li>
           </ul>
         </nav>
