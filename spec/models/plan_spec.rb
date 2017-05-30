@@ -6,6 +6,7 @@ RSpec.describe Plan, type: :model do
     it { should validate_uniqueness_of(:name) }
     it { should validate_presence_of(:value) }
     it { should have_many(:players).class_name('Player') }
+    it { should have_one(:priority).class_name('Priority') }
   end
 
   context 'when it has all the attributes' do
@@ -24,18 +25,24 @@ RSpec.describe Plan, type: :model do
 
   context 'association with player' do
     before :all do
-      Player.delete_all
-      Plan.delete_all
+      Player.destroy_all
+      Plan.destroy_all
+      pass = 'pass'
       plan1 = Plan.create(name: 'Plan 1', value: 299)
       plan2 = Plan.create(name: 'Plan 2', value: 199)
-      player1 = Player.create(name: 'Player 1', email: 'email1@mail.com')
-      player2 = Player.create(name: 'Player 2', email: 'email2@mail.com')
-      player3 = Player.create(name: 'Player 3', email: 'email3@mail.com')
-      player4 = Player.create(name: 'Player 4', email: 'email4@mail.com')
-      player1.update(plan: plan1)
-      player2.update(plan: plan1)
-      player3.update(plan: plan2)
-      player4.update(plan: plan2)
+
+      Player.create(
+        name: 'Player 1', email: 'email1@mail.com', password: pass, plan: plan1
+      )
+      Player.create(
+        name: 'Player 2', email: 'email2@mail.com', password: pass, plan: plan1
+      )
+      Player.create(
+        name: 'Player 3', email: 'email3@mail.com', password: pass, plan: plan2
+      )
+      Player.create(
+        name: 'Player 4', email: 'email4@mail.com', password: pass, plan: plan2
+      )
     end
 
     it 'creates 2 players' do

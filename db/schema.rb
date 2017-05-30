@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170521231713) do
+ActiveRecord::Schema.define(version: 20170528221921) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,7 +93,33 @@ ActiveRecord::Schema.define(version: 20170521231713) do
     t.index ["plan_id"], name: "index_players_on_plan_id", using: :btree
   end
 
+  create_table "priorities", force: :cascade do |t|
+    t.integer  "player_id"
+    t.text     "interesting_subjects"
+    t.text     "pretended_course"
+    t.string   "pretended_formation_degree"
+    t.string   "starting_seaon"
+    t.boolean  "pretends_study_other_course"
+    t.text     "other_pretended_course"
+    t.text     "family_amount_per_year"
+    t.string   "finances_help",               default: [],              array: true
+    t.string   "institution_type"
+    t.string   "performance"
+    t.string   "tests_taken",                 default: [],              array: true
+    t.string   "institution_size"
+    t.string   "internation_studants"
+    t.string   "usa_regions",                 default: [],              array: true
+    t.string   "localization_area"
+    t.string   "hosting_type"
+    t.string   "interested_activities",       default: [],              array: true
+    t.text     "hobbies"
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.index ["player_id"], name: "index_priorities_on_player_id", using: :btree
+  end
+
   add_foreign_key "documents", "document_types"
   add_foreign_key "documents", "players"
   add_foreign_key "players", "plans"
+  add_foreign_key "priorities", "players"
 end
