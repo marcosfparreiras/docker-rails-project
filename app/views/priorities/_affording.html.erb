@@ -1,0 +1,81 @@
+<%= form_for(@priority) do |f| %>
+  <h2>COMO VOCÊ VAI PAGAR POR SEUS ESTUDOS NOS ESTADOS UNIDOS?</h2>
+
+  <div>Mensalidades, taxas e custo de vida variam muito entre as instituições, essas variações tornam o ensino superior acessível a centenas de milhares de estudantes internacionais a cada ano.</div>
+
+  <div>QUANDO VOCÊ COMEÇA A DEFINIR SUAS FONTES DE FINANCIAMENTO, VOCÊ DEVE PENSAR:</div>
+
+  <h2>Sua Contribuição Financeira</h2>
+  <div>Sua contribuição financeira pode vir de recursos próprios, familiares e/ou outras fontes.</div>
+
+
+  <div class="field">
+    Quanto dinheiro, em dólares, você e sua família podem contribuir a cada ano?</div>
+    <h4>
+      <%= radio_button(:priority, :family_amount_per_year, "less_then_5") %>
+      Menos de US$ 5.000
+    </h4>
+
+    <h4>
+      <%= radio_button(:priority, :family_amount_per_year, "5_to_10") %>
+      US$ 5.000 - 10.000
+    </h4>
+
+    <h4>
+      <%= radio_button(:priority, :family_amount_per_year, "10_to_15") %>
+      US$ 10.000 - 15.000
+    </h4>
+
+    <h4>
+      <%= radio_button(:priority, :family_amount_per_year, "15_to_25") %>
+      US$ 15.000 - 25.000
+    </h4>
+
+    <h4>
+      <%= radio_button(:priority, :family_amount_per_year, "more_then_25") %>
+      Mais de US$ 25.000
+    </h4>
+  </div>
+
+  <h2>Auxílio Financeiro</h2>
+
+  <div class="field">
+    Muitas instituições norte-americanas oferecem bolsas de estudo por um número de razões. Esses prêmios financeiros são dados para os candidatos mais qualificados. A partir desta lista, selecione as que podem se aplicar a você
+
+    <h4>
+      <%= check_box_tag(:finances_help, 'financial_need') %>
+      Financial Need
+    </h4>
+    Auxílio por necessidade financeira geralmente é determinada pela baixa renda, dificuldades econômicas ou outro fatores.
+
+    <h4>
+      <%= check_box_tag(:finances_help, "academic_merit") %>
+      Academic Merit
+    </h4>
+    Realizações acadêmicas, normalmente obtidas em sala de aula através de boas notas, altas pontuações em testes, e outros sucessos.
+
+    <h4>
+      <%= check_box_tag(:finances_help, "sports") %>
+      Sports
+    </h4>
+    Talentos especiais em um esporte, normalmente exibidos durante eventos competitivos.
+
+    <h4>
+      <%= check_box_tag(:finances_help, "musical_talent") %>
+      Musical Talent
+    </h4>
+    Talentos especiais em música.
+
+    <h4>
+      <%= check_box_tag(:finances_help, "on_campus_employment") %>
+      On-Campus Employment
+    </h4>
+    Regulamentos de imigração dos Estados Unidos atuais permitem que os estudantes internacionais a trabalhem até 20 horas por semana no campus, 	enquanto a escola estiver em sessão, e até 40 horas por semana durante as férias escolares.
+
+    <h4>
+      <%= check_box_tag(:finances_help, "others") %>
+      Outras razões
+    </h4>
+    <%= f.text_area :pretended_course, cols: "60", rows: "4" %>
+  </div>
+<% end %>

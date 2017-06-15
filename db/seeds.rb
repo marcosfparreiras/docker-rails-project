@@ -45,7 +45,8 @@ Player.create(
   platform_parcels: 23,
   platform_notes: 'Any notes for AE Academy',
   active: true,
-  plan_id: p1.id
+  plan_id: p1.id,
+  password: 'mypass'
 )
 
 Player.create(
@@ -82,7 +83,8 @@ Player.create(
   platform_parcels: 23,
   platform_notes: 'Any notes for AE Academy',
   active: true,
-  plan_id: p2.id
+  plan_id: p2.id,
+  password: 'mypass'
 )
 
 DocumentType.create(

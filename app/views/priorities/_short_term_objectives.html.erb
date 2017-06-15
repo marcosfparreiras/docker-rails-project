@@ -1,0 +1,55 @@
+<%= form_for(@priority) do |f| %>
+  <h2>Seus Objetivos em Curto Prazo</h2>
+
+  <div class="field">
+    Quais assuntos mais lhe interessam?<br>
+    <%= f.text_area :interesting_subjects, cols: "60", rows: "2" %>
+  </div>
+
+  <div class="field">
+    Qual curso de formação você pretende fazer?<br>
+    <%= f.text_area :pretended_course, cols: "60", rows: "2" %>
+  </div>
+
+  <div class="field">
+    <h4>
+      <%= radio_button(:priority, :pretended_formation_degree, "tecnico") %>
+      Grau Técnico (2 anos)
+    </h4>
+    Diploma concedido após um período de estudo de dois anos.<br>
+
+    <h4>
+      <%= radio_button(:priority, :pretended_formation_degree, "bacharelado") %>
+      Bacharelado (4 anos)
+    </h4>
+    Diploma concedido após a conclusão de cerca de quatro anos de estudo em tempo integral.
+
+    <h4>
+      <%= radio_button(:priority, :pretended_formation_degree, "indeciso") %>
+      Indeciso (4 anos)
+    </h4>
+  </div>
+
+  <div class="field">
+    Durante qual época do ano você pretende começar seus estudos nos Estados Unidos?
+    <h4>
+      <%= radio_button(:priority, :starting_season, "agosto-setembro") %>
+      Agosto/Setembro
+    </h4>
+
+    <h4>
+      <%= radio_button(:priority, :starting_season, "janeiro") %>
+      Janeiro
+    </h4>
+
+    <h4>
+      <%= radio_button(:priority, :starting_season, "maio-junho") %>
+      Maio/Junho
+    </h4>
+
+    <h4>
+      <%= radio_button(:priority, :starting_season, "sem_preferencia") %>
+      Sem Preferência
+    </h4>
+  </div>
+<% end %>

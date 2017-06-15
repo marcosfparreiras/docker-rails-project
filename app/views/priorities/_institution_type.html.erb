@@ -1,0 +1,176 @@
+<%= form_for(@priority) do |f| %>
+  <h2>QUE TIPO DE INSTITUIÇÃO NOS ESTADOS UNIDOS É MELHOR PARA VOCÊ?</h2>
+
+  <div>Há mais de 4.900 faculdades e universidades credenciadas nos Estados Unidos.</div>
+  <div>QUANDO VOCÊ COMEÇA A DEFINIR SUAS OPÇÕES, VOCÊ DEVE PENSAR:</div>
+
+  <h2>Tipo de Instituição</h2>
+  As instituições nos Estados Unidos oferecem aos estudantes de graduação várias opções com base em suas necessidades individuais.
+
+  <div class="field">
+    <h4>
+      <%= radio_button(:priority, :institution_type, "2years") %>
+      2-year Institution
+    </h4>
+    Também conhecidas com Community College, essas instituições são para estudantes de graduação que desejam:
+    <ul>
+      <li>Um grau técnico</li>
+      <li>Crédito acadêmico para uma graduação de bacharel. Ganhando créditos acadêmicos em uma Community College, que é geralmente menos caro, pode ajudar a reduzir o custo total de um diploma de bacharel. As Community College também podem oferecer um processo de admissão mais flexível</li>
+    </ul>
+
+    <h4>
+      <%= radio_button(:priority, :institution_type, "4years") %>
+      4-year Institution
+    </h4>
+    Estudantes em faculdades e universidade podem:
+    <ul>
+      <li>Fazer um intercâmbio universitário de um semestre ou mais</li>
+      <li>Diploma de Bacharel</li>
+      <li>Pós-Graduação após completar o bacharelado</li>
+    </ul>
+
+    <h4>
+      <%= radio_button(:priority, :institution_type, "both") %>
+      Ambas
+    </h4>
+    Pense nos dois casos se você estiver procurando por programas acadêmicos específicos ou assistência financeira.
+  </div>
+
+  <div class="field">
+    <h2>Desempenho no Ensino Médio</h2>
+    A média combinada das notas de um aluno para todos os cursos acadêmicos concluídos no Ensino Médio. Nos Estados Unidos, notas do ensino médio são geralmente atribuídas em letras e baseiam-se em uma escala chamada GPA (Grade Point Average).
+
+    <table class="table table-hover">
+      <tr>
+        <th>Nota</th>
+        <th>GPA</th>
+      </tr>
+      <tr>
+        <td>A</td>
+        <td>4.0 (excelente)</td>
+      </tr>
+      <tr>
+        <td>B</td>
+        <td>3.0 (bom)</td>
+      </tr>
+      <tr>
+        <td>C</td>
+        <td>2.0 (satisfatório)</td>
+      </tr>
+      <tr>
+        <td>D</td>
+        <td>1.0 (média)</td>
+      </tr>
+      <tr>
+        <td>F</td>
+        <td>0.0 (reprovado)</td>
+      </tr>
+    </table>
+
+    Como você classifica a seu desempenho no Ensino Médio baseado na escala acima?
+    <h4>
+      <%= radio_button(:priority, :performance, "excelente") %>
+      Excelente
+    </h4>
+
+    <h4>
+      <%= radio_button(:priority, :performance, "bom") %>
+      Bom
+    </h4>
+
+    <h4>
+      <%= radio_button(:priority, :performance, "satisfatorio") %>
+      Satisfatório
+    </h4>
+
+    <h4>
+      <%= radio_button(:priority, :performance, "mediano") %>
+      Mediano
+    </h4>
+
+    <h4>
+      <%= radio_button(:priority, :performance, "ruim") %>
+      Ruim
+    </h4>
+  </div>
+
+  <div class="field">
+    Você já tomou algum dos testes padronizados para admissão em faculdades ou universidades americanas?
+
+    <h4>
+      <%= check_box_tag(:tests_taken, 'financial_need') %>
+      SAT Reasoning Test
+    </h4>
+    Teste de múltipla escolha de matemática e Inglês.
+
+    <h4>
+      <%= check_box_tag(:tests_taken, "academic_merit") %>
+      ACT + Writing Test
+    </h4>
+    Teste de múltipla escolha de Inglês, matemática, leitura, ciência e raciocínio (mais um componente de escrita opcional).
+
+    <h4>
+      <%= check_box_tag(:tests_taken, "sports") %>
+      TOEFL
+    </h4>
+    Teste de Inglês como Língua Estrangeira, exame de proficiência de candidatos cuja língua materna não é o Inglês.
+
+    <h4>
+      <%= check_box_tag(:tests_taken, "musical_talent") %>
+      IELTS
+    </h4>
+    Teste de Inglês como Língua Estrangeira, exame de proficiência de candidatos cuja língua materna não é o Inglês.
+  </div>
+
+  <h2>Desempenho no Ensino Médio</h2>
+  <div class="field">
+    O tamanho de uma faculdade ou universidade pode impactar muitas coisas, tais como o número de alunos em sala de aula, cursos ou disciplinas que são oferecidos, a facilidade de fazer novos amigos, e para o ambiente em geral.
+
+    Qual dos seguintes tamanhos de campus seria o melhor para você?
+
+    <h4>
+      <%= radio_button(:priority, :institution_size, "pequeno") %>
+      Pequeno (menos de 5.000 estudantes)
+    </h4>
+
+    <h4>
+      <%= radio_button(:priority, :institution_size, "medio") %>
+      Médio (5.000 - 15.000 estudantes)
+    </h4>
+
+    <h4>
+      <%= radio_button(:priority, :institution_size, "grande") %>
+      Grande (mais de 15.000 estudantes)
+    </h4>
+
+    <h4>
+      <%= radio_button(:priority, :institution_size, "qualquer") %>
+      Sem preferência
+    </h4>
+  </div>
+
+  <div class="field">
+    O número de estudantes internacionais matriculados na instituição pode ser importante para você também. O que seria melhor para você?
+
+    <h4>
+      <%= radio_button(:priority, :internation_studants, "baixa") %>
+      Baixa população de estudantes internacionais
+    </h4>
+
+    <h4>
+      <%= radio_button(:priority, :internation_studants, "media") %>
+      Média população de estudantes internacionais
+    </h4>
+
+    <h4>
+      <%= radio_button(:priority, :internation_studants, "grande") %>
+      Grande população de estudantes internacionais
+    </h4>
+
+    <h4>
+      <%= radio_button(:priority, :internation_studants, "qualquer") %>
+      Sem preferência
+    </h4>
+  </div>
+<% end %>
+

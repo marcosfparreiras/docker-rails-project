@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 20170528221921) do
     t.text     "interesting_subjects"
     t.text     "pretended_course"
     t.string   "pretended_formation_degree"
-    t.string   "starting_seaon"
+    t.string   "starting_season"
     t.boolean  "pretends_study_other_course"
     t.text     "other_pretended_course"
     t.text     "family_amount_per_year"

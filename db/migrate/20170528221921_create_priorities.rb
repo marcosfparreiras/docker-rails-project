@@ -8,7 +8,7 @@ class CreatePriorities < ActiveRecord::Migration[5.0]
       t.text :interesting_subjects
       t.text :pretended_course
       t.string :pretended_formation_degree
-      t.string :starting_seaon
+      t.string :starting_season
 
       # long term objectives
       t.boolean :pretends_study_other_course

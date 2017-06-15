@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :priorities
   root to: 'sessions#new'
   get 'sessions/new'
   get    '/login',   to: 'sessions#new'

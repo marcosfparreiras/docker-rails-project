@@ -1,0 +1,26 @@
+<%= form_for(priority) do |f| %>
+  <% if priority.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(priority.errors.count, "error") %> prohibited this priority from being saved:</h2>
+
+      <ul>
+      <% priority.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>Ao procurar por um programa de graduação nos Estados Unidos, é importante primeiro decidir o que é mais importante para você. Isso nos ajudará a guiá-lo através de seus passos para o estudo nos Estados Unidos. Por favor, responda às seguintes perguntas com o máximo de informação possível.</div>
+
+  <%= render partial: 'why_study_in_usa' %>
+  <%= render partial: 'short_term_objectives' %>
+  <%= render partial: 'long_term_objectives' %>
+  <%= render partial: 'affording' %>
+  <%= render partial: 'institution_type' %>
+  <%= render partial: 'adaptation' %>
+
+  <div class="actions">
+    <%= f.submit 'Salvar Prioridades' %>
+  </div>
+<% end %>
