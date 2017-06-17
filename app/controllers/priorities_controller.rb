@@ -24,8 +24,7 @@ class PrioritiesController < ApplicationController
   # POST /priorities
   # POST /priorities.json
   def create
-    admin = current_user
-    player = Player.find_by_email(admin.email).take
+    player = current_user
     @priority = Priority.new(priority_params)
     @priority.player = player
 
@@ -76,7 +75,21 @@ class PrioritiesController < ApplicationController
         :interesting_subjects,
         :pretended_course,
         :pretended_formation_degree,
-        :starting_season
+        :starting_season,
+        :pretends_study_other_course,
+        :other_pretended_course,
+        :family_amount_per_year,
+        :finances_help,
+        :institution_type,
+        :performance,
+        :tests_taken,
+        :institution_size,
+        :internation_studante,
+        :usa_regions,
+        :localization_area,
+        :hosting_type,
+        :interested_activities,
+        :hobbies
       )
     end
 end

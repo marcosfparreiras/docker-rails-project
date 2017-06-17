@@ -1,18 +1,16 @@
-<%= form_for(@priority) do |f| %>
-  <h2>Seus Objetivos em Longo Prazo</h2>
+<p class="h3 text-uppercase">Seus Objetivos em Longo Prazo</p>
 
-  <div class="field">
-    Você planeja começar uma pós-graduação ou outro programa acadêmico depois de completar seu grau de bacharel nos Estados Unidos?
+<div class="field">
+  <p class="lead text-muted">Você planeja começar uma pós-graduação ou outro programa acadêmico depois de completar seu grau de bacharel nos Estados Unidos?</p>
 
-    <h4>
-      <%= radio_button(:priority, :pretends_study_other_course, "sim") %>
-      Sim
-    </h4>
-    <%= f.text_area :other_pretended_course, cols: "60", rows: "2" %>
+  <p class="h4">
+    <%= radio_button(:priority, :pretends_study_other_course, "sim") %>
+    Sim
+  </p>
+  <p><%= f.text_area :other_pretended_course, cols: "60", rows: "2" %></p>
 
-    <h4>
-      <%= radio_button(:priority, :pretends_study_other_course, "nao") %>
-      Não
-    </h4>
-  </div>
-<% end %>
+  <p class="h4">
+    <%= radio_button(:priority, :pretends_study_other_course, "nao") %>
+    Não
+  </p>
+</div>
