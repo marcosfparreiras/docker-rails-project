@@ -1,111 +1,109 @@
-<%= form_for(@priority) do |f| %>
-  <h2>COMO VOCÊ ACHA QUE SERÁ A SUA ADAPTAÇÃO A UM NOVO AMBIENTE?</h2>
+<p class="h2">COMO VOCÊ ACHA QUE SERÁ A SUA ADAPTAÇÃO A UM NOVO AMBIENTE?</p>
 
-  Os Estados Unidos é um país muito diverso, oferecendo uma variedade de climas, herança cultural e paisagens de costa a costa.
+<p class="lead text-muted">Os Estados Unidos é um país muito diverso, oferecendo uma variedade de climas, herança cultural e paisagens de costa a costa. QUANDO VOCÊ IMAGINA O MEIO AMBIENTE NO QUAL VOCÊ QUER ESTUDAR, VOCÊ DEVE PENSAR:</p>
 
-  QUANDO VOCÊ IMAGINA O MEIO AMBIENTE NO QUAL VOCÊ QUER ESTUDAR, VOCÊ DEVE PENSAR:
+<p class="h3">Região</p>
+<div class="field">
+  <p class="lead text-muted">Os Estados Unidos está dividido em quatro regiões distintas.</p>
 
-  <h2>Região</h2>
-  <div class="field">
-    Os Estados Unidos esta dividido em quatro regiões distintas.
+  <p class="h4">
+    <%= check_box_tag(:usa_regions, 'oeste') %>
+    Oeste
+    <spam class="small">A maior região dos Estados Unidos cobrindo mais da metade de sua área de terra, tornando-a área mais diversificada geograficamente. É conhecida por climas amenos e úmidos para os muito secos e quentes, com maior acesso a cadeias de montanhas, áreas desérticas, florestas e da costa do Pacífico.</spam>
+  </p>
 
-    <h4>
-      <%= check_box_tag(:usa_regions, 'oeste') %>
-      Oeste
-    </h4>
-    A maior região dos Estados Unidos cobrindo mais da metade de sua área de terra, tornando-a área mais diversificada geograficamente. É conhecida por climas amenos e úmidos para os muito secos e quentes, com maior acesso a cadeias de montanhas, áreas desérticas, florestas e da costa do Pacífico.
+  <p class="h4">
+    <%= check_box_tag(:usa_regions, "centro_oeste") %>
+    Centro-Oeste
+    <spam class="small">Também chamado de "América Central", que é conhecida por planícies baixas, pequenas colinas, e acesso a grandes lagos de água doce que fazem fronteira com o Canadá. Mudança climática sazonal, variando de verões amenos para invernos frios com fortes nevascas, também é comum nos estados do Centro-Oeste.</spam>
+  </p>
 
-    <h4>
-      <%= check_box_tag(:usa_regions, "centro_oeste") %>
-      Centro-Oeste
-    </h4>
-    Também chamado de "América Central", que é conhecida por planícies baixas, pequenas colinas, e acesso a grandes lagos de água doce que fazem fronteira com o Canadá. Mudança climática sazonal, variando de verões amenos para invernos frios com fortes nevascas, também é comum nos estados do Centro-Oeste.
+  <p class="h4">
+    <%= check_box_tag(:usa_regions, "sul") %>
+    Sul
+    <spam class="small">A região conhecida por seu clima subtropical, com verões úmidos e invernos suaves. Estados do Sul tem paisagens diversas, incluindo montanhas,pântanos, desertos áridos e da costa do Golfo do México.</spam>
+  </p>
 
-    <h4>
-      <%= check_box_tag(:usa_regions, "sul") %>
-      Sul
-    </h4>
-    A região conhecida por seu clima subtropical, com verões úmidos e invernos suaves. Estados do Sul tem paisagens diversas, incluindo montanhas,pântanos, desertos áridos e da costa do Golfo do México.
+  <p class="h4">
+    <%= check_box_tag(:tests_taken, "nordeste") %>
+    Nordeste
+    <spam class="small">Composta dos estados da Nova Inglaterra e do Médio Atlântico, esta região é conhecida pelo seu interior e litoral rochoso Atlântico florestal. Mudança climática sazonal, variando de verões amenos para invernos frios com fortes nevascas, também é comum nos estados do Nordeste.</spam>
+  </p>
+</div>
 
-    <h4>
-      <%= check_box_tag(:tests_taken, "nordeste") %>
-      Nordeste
-    </h4>
-    Composta dos estados da Nova Inglaterra e do Médio Atlântico, esta região é conhecida pelo seu interior e litoral rochoso Atlântico florestal. Mudança climática sazonal, variando de verões amenos para invernos frios com fortes nevascas, também é comum nos estados do Nordeste.
-  </div>
+<p class="h3">Áreas de Localização</p>
+<div class="field">
+  <p class="lead text-muted">Praticamente todos os estados dos EUA possuem uma configuração que podem variar de uma cidade urbana, suburbana residencial, ou uma paisagem rural. Faculdades e universidades norte-americanas podem estar localizadas em qualquer uma dessas configurações. Qual configuração seria melhor para você?</p>
 
-  <h2>Áreas de Localização</h2>
-  <div class="field">
-    Praticamente todos os estados dos EUA possuem uma configuração que podem variar de uma cidade urbana, suburbana residencial, ou uma paisagem rural. Faculdades e universidades norte-americanas podem estar localizadas em qualquer uma dessas configurações.
+  <p class="h4">
+    <%= radio_button(:priority, :localization_area, "urbana") %>
+    Urbana
+    <spam class="small">Cidades com populações maiores proporcionam acesso mais fácil a bancos, lojas, artes, entretenimento, transporte público e aeroportos internacionais. As áreas urbanas podem ter custos de vida mais elevados.</spam>
+  </p>
 
-    Qual configuração seria melhor para você?
+  <p class="h4">
+    <%= radio_button(:priority, :localization_area, "suburbana") %>
+    Suburbana Residencial
+    <spam class="small">Áreas residenciais perto ou mais longe das cidades, com populações moderadas e restaurantes e áreas comerciais. Áreas suburbanas podem ter custo de vida médio mais moderado.</spam>
+  </p>
 
-    <h4>
-      <%= radio_button(:priority, :localization_area, "urbana") %>
-      Urbana
-    </h4>
-    Cidades com populações maiores proporcionam acesso mais fácil a bancos, lojas, artes, entretenimento, transporte público e aeroportos internacionais. As áreas urbanas podem ter custos de vida mais elevados.
+  <p class="h4">
+    <%= radio_button(:priority, :localization_area, "rural") %>
+    Rural
+    <spam class="small">Áreas do campo com pequenas cidades menos populosas e utilizadas para mineração e agricultura. As zonas rurais podem ter menores custos de vida.</spam>
+  </p>
+</div>
 
-    <h4>
-      <%= radio_button(:priority, :localization_area, "suburbana") %>
-      Suburbana Residencial
-    </h4>
-    Áreas residenciais perto ou mais longe das cidades, com populações moderadas e restaurantes e áreas comerciais. Áreas suburbanas podem ter custo de vida médio mais moderado.
+<p class="h3">Alojamento</p>
+<div class="field">
+  <p class="lead text-muted">O tipo de alojamento que você escolher vai depender de suas necessidades pessoais e as opções disponíveis.</p>
 
-    <h4>
-      <%= radio_button(:priority, :localization_area, "rural") %>
-      Rural
-    </h4>
-    Áreas do campo com pequenas cidades menos populosas e utilizadas para mineração e agricultura. As zonas rurais podem ter menores custos de vida.
-  </div>
-
-  <h2>Alojamento</h2>
-  <div class="field">
-    O tipo de alojamento que você escolher vai depender de suas necessidades pessoais e as opções disponíveis.
-
-    <h4>
-      <%= radio_button(:priority, :hosting_type, "on_campus") %>
-      On-Campus Housing
-    </h4>
+  <p class="h4">
+    <%= radio_button(:priority, :hosting_type, "on_campus") %>
+    On-Campus Housing
+  </p>
+  <p>
     Dormitórios e Halls de residência
     <ul>
       <li>Decorados com necessidades básicas como uma cama, armário, mesa, e uma cadeira. Os quartos são geralmente compartilhados com outros estudantes e pode ser um ótimo lugar para fazer novos amigos rapidamente</li>
-	    <li>Alguns dormitórios podem ser só para homens ou mulheres apenas, e alguns podem permitir que homens e mulheres na mesma residência.</li>
+      <li>Alguns dormitórios podem ser só para homens ou mulheres apenas, e alguns podem permitir que homens e mulheres na mesma residência.</li>
     </ul>
+  </p>
 
-    <h4>
-      <%= radio_button(:priority, :hosting_type, "off_campus") %>
-      Off-Campus Housing
-    </h4>
+  <p class="h4">
+    <%= radio_button(:priority, :hosting_type, "off_campus") %>
+    Off-Campus Housing
+  </p>
+  <P>
     Apartamentos
     <ul>
       <li>O estudante encontra o seu próprio apartamento e, normalmente, paga um depósito, aluguel mensal, e as taxas de serviços públicos</li>
     </ul>
-  </div>
+  </p>
+</div>
 
-  <h2>Vida no Campus</h2>
-  <div class="field">
-    As atividades disponíveis no Campus também podem ser uma parte importante de sua experiência nos Estado Unidos.
+<p class="h3">Vida no Campus</p>
+<div class="field">
+  <p class="lead text-muted">As atividades disponíveis no Campus também podem ser uma parte importante de sua experiência nos Estado Unidos.</p>
 
-    <h4>
-      <%= check_box_tag(:interested_activities, "centro_oeste") %>
-      Esportes
-    </h4>
+  <p class="h4">
+    <%= check_box_tag(:interested_activities, "centro_oeste") %>
+    Esportes
+  </p>
 
-    <h4>
-      <%= check_box_tag(:interested_activities, "sul") %>
-      Artes
-    </h4>
+  <p class="h4">
+    <%= check_box_tag(:interested_activities, "sul") %>
+    Artes
+  </p>
 
-    <h4>
-      <%= check_box_tag(:interested_activities, "sul") %>
-      Clube e Organizações
-    </h4>
-  </div>
+  <p class="h4">
+    <%= check_box_tag(:interested_activities, "sul") %>
+    Clube e Organizações
+  </p>
+</div>
 
-  <br>
-  <div class="field">
-    <h4>Hobbies</h4>
-    <%= f.text_area :hobbies, cols: "80", rows: "5" %>
-  </div>
-<% end %>
+<br>
+<div class="field">
+  <p class="h4">Hobbies</p>
+  <%= f.text_area :hobbies, cols: "80", rows: "5" %>
+</div>

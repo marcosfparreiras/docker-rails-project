@@ -13,12 +13,16 @@
 
   <p class="lead"><em>Ao procurar por um programa de graduação nos Estados Unidos, é importante primeiro decidir o que é mais importante para você. Isso nos ajudará a guiá-lo através de seus passos para o estudo nos Estados Unidos. Por favor, responda às seguintes perguntas com o máximo de informação possível.</em></p>
 
+
   <%= render 'why_study_in_usa' %>
   <%= render 'short_term_objectives', f: f %>
   <%= render 'long_term_objectives', f: f %>
-  <%#= render partial: 'affording' %>
-  <%#= render partial: 'institution_type' %>
-  <%#= render partial: 'adaptation' %>
+  <hr>
+  <%= render 'affording', f: f %>
+  <hr>
+  <%= render 'institution_type', f: f %>
+  <hr>
+  <%= render 'adaptation', f: f %>
 
   <div class="actions">
     <p><%= f.submit 'Salvar Prioridades', class: 'btn btn-success' %></p>

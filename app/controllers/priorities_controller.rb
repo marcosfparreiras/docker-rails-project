@@ -28,15 +28,17 @@ class PrioritiesController < ApplicationController
     @priority = Priority.new(priority_params)
     @priority.player = player
 
-    respond_to do |format|
-      if @priority.save
-        format.html { redirect_to @priority, notice: 'Priority was successfully created.' }
-        format.json { render :show, status: :created, location: @priority }
-      else
-        format.html { render :new }
-        format.json { render json: @priority.errors, status: :unprocessable_entity }
-      end
-    end
+    p params
+    puts JSON.pretty_generate @priority.attributes
+    # respond_to do |format|
+    #   if @priority.save
+    #     format.html { redirect_to @priority, notice: 'Priority was successfully created.' }
+    #     format.json { render :show, status: :created, location: @priority }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @priority.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /priorities/1
