@@ -60,6 +60,10 @@ class Player < ApplicationRecord
     "R$ #{format('%.2f', value.to_f)}"
   end
 
+  def age
+    ((Time.now - birthday.to_time)/(60*60*24*365)).floor
+  end
+
   # def labels
   LABELS = {
     name: 'Name',

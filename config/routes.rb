@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     member do
       put 'activate'
       put 'deactivate'
+      get 'status'
     end
   end
 

@@ -3,6 +3,11 @@ class PlayersController < ApplicationController
   skip_before_filter :require_login, only: [:activate, :deactivate]
   before_action :set_player, only: [:show, :edit, :update, :destroy, :activate, :deactivate]
 
+  def status
+    @player = Player.find(params[:id])
+    @headers = %w(Status Item Details Deadline Date\ Completed)
+  end
+
   def active
     @players = Player.active
   end

@@ -24,9 +24,9 @@
               <li><%= link_to "Register Player", new_player_path %></li>
               <li><%= link_to "Plans", plans_path %></li>
             <% elsif current_user.is_a?(Player) %>
-              <li class='navbar-brand'><%= link_to "AE ACADEMY", player_path(current_user.id) %></li>
-              <li><%= link_to "Status Page", player_path(current_user.id) %></li>
-              <li><%= link_to "My Profile", player_path(current_user.id) %></li>
+              <li class='navbar-brand'><%= link_to "AE ACADEMY", status_player_path(current_user) %></li>
+              <li><%= link_to "Status Page", status_player_path(current_user) %></li>
+              <li><%= link_to "My Profile", edit_player_path(current_user) %></li>
               <li><%= link_to "Tell My Story", player_path(current_user.id) %></li>
               <li><%= link_to "Profile Summary", player_path(current_user.id) %></li>
               <li><%= link_to "My Priorities", new_priority_path %></li>

@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       log_in user
       class_name = user.class.name
       redirect_to active_players_path if user.is_a?(Admin)
-      redirect_to player_path(user.id) if user.is_a?(Player)
+      redirect_to status_player_path(user) if user.is_a?(Player)
     else
       flash.now[:danger] = 'Invalid email/password combination'
       render 'new'
