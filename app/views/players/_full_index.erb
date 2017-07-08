@@ -1,48 +1,16 @@
 <table class="table table-hover">
 <tr>
-<%
-  all_labels = [''].concat(Player::LABELS.values)
-  all_labels.each do |value|
-%>
-  <th><%= value %></th>
-<% end %>
+  <th></th>
+  <% player_main_attributes_headers.each do |value| %>
+    <th><%= value %></th>
+  <% end %>
 </tr>
-<% @players.each do |player| %>
-  <%
-    activate_link =
-      if player.active?
-        link_to 'Deactivate', deactivate_player_path(player),
-          method: :put,
-          remote: true,
-          id: "deactivate_player_#{player.id}",
-          class: 'btn btn-danger btn-sm',
-          data: {
-            :confirm => "Are you sure you want to deactivate #{player.name}?"
-          }
-      else
-        link_to 'Activate', activate_player_path(player),
-          method: :put,
-          remote: true,
-          id: "activate_player_#{player.id}",
-          class: 'btn btn-success btn-sm',
-          data: {
-            :confirm => "Are you sure you want to activate #{player.name}?"
-          }
-      end
-  %>
-  <tr>
-    <%
-      all_attributes = ['activate'].concat(Player::METHODS.values)
-      all_attributes.each_with_index do |method, i|
-    %>
-      <td><%=
-        if i > 0
-          player.send(method)
-        else
-          activate_link
-        end
-      %></td>
-    <% end %>
-  </tr>
-<% end %>
+  <% @players.each do |player| %>
+    <tr>
+      <td><%= link_activate_deactive(player) %></td>
+      <% player_main_attributes(player).each do |_, value| %>
+        <td><%= value %></td>
+      <% end %>
+    </tr>
+  <% end %>
 </table>
