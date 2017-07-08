@@ -1,7 +1,7 @@
 module PlayersHelper
   def player_main_attributes(player)
     {
-      'Nome' => player.name,
+      'Nome' => player_show_link(player),
       'Data de Nascimento' => player.print_birthday,
       'Idade' => player.age,
       'Celular' => player.print_phones,
@@ -11,6 +11,10 @@ module PlayersHelper
       'Situação Pagamento (AE)' => player.platform_payment_mode,
       'Situação Pagamento (AF)' => player.advisory_payment_mode
     }
+  end
+
+  def player_show_link(player)
+    link_to player.name, player_path(player.id), class: 'clickable-row'
   end
 
   def player_main_attributes_headers

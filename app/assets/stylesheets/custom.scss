@@ -4,6 +4,13 @@
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
+$light-blue: #99ccff;
+
+.clickable-row {
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}
 
 .navbar-brand {
   padding: 0px;
