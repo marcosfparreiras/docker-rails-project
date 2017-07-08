@@ -6,7 +6,6 @@ RSpec.describe Plan, type: :model do
     it { should validate_uniqueness_of(:name) }
     it { should validate_presence_of(:value) }
     it { should have_many(:players).class_name('Player') }
-    it { should have_one(:priority).class_name('Priority') }
   end
 
   context 'when it has all the attributes' do
@@ -25,6 +24,7 @@ RSpec.describe Plan, type: :model do
 
   context 'association with player' do
     before :all do
+      Priority.destroy_all
       Player.destroy_all
       Plan.destroy_all
       pass = 'pass'

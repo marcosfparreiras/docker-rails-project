@@ -6,6 +6,7 @@ RSpec.describe Player, type: :model do
     it { should validate_presence_of(:email) }
     it { should validate_uniqueness_of(:email) }
     it { should belong_to(:plan).class_name('Plan') }
+    it { should have_one(:priority).class_name('Priority') }
   end
 
   before :all do
