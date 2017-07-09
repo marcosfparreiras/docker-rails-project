@@ -1,0 +1,7 @@
+<p class="h3"><%= @player.name %></p>
+<%= render partial: 'players/items/index', locals: { items: @items } %>
+
+<p class="h4">Criar novo item</p>
+<%= render partial: 'players/items/new', locals: { player: @player } %>
+
+

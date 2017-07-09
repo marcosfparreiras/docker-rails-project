@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170528221921) do
+ActiveRecord::Schema.define(version: 20170708190505) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,16 @@ ActiveRecord::Schema.define(version: 20170528221921) do
     t.datetime "updated_at",                   null: false
     t.index ["document_type_id"], name: "index_documents_on_document_type_id", using: :btree
     t.index ["player_id"], name: "index_documents_on_player_id", using: :btree
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string  "name"
+    t.integer "status",         default: 0
+    t.text    "details"
+    t.date    "deadline"
+    t.date    "date_completed"
+    t.integer "player_id"
+    t.index ["player_id"], name: "index_items_on_player_id", using: :btree
   end
 
   create_table "plans", force: :cascade do |t|
@@ -120,6 +130,7 @@ ActiveRecord::Schema.define(version: 20170528221921) do
 
   add_foreign_key "documents", "document_types"
   add_foreign_key "documents", "players"
+  add_foreign_key "items", "players"
   add_foreign_key "players", "plans"
   add_foreign_key "priorities", "players"
 end

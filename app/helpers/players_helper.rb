@@ -1,7 +1,7 @@
 module PlayersHelper
   def player_main_attributes(player)
     {
-      'Nome' => player_show_link(player),
+      'Nome' => player_items_link(player),
       'Data de Nascimento' => player.print_birthday,
       'Idade' => player.age,
       'Celular' => player.print_phones,
@@ -13,8 +13,8 @@ module PlayersHelper
     }
   end
 
-  def player_show_link(player)
-    link_to player.name, player_path(player.id), class: 'clickable-row'
+  def player_items_link(player)
+    link_to player.name, items_player_path(player.id), class: 'clickable-row'
   end
 
   def player_main_attributes_headers

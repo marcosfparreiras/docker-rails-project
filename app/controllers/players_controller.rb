@@ -30,6 +30,11 @@ class PlayersController < ApplicationController
     end
   end
 
+  def items
+    @player = Player.find(params[:id])
+    @items = @player.items
+  end
+
   # GET /players
   # GET /players.json
   def index

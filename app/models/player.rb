@@ -6,9 +6,12 @@ class Player < ApplicationRecord
   belongs_to :plan
   has_many :documents
   has_one :priority, dependent: :destroy
+  has_many :items, dependent: :destroy
 
   scope :active, -> { where(active: true).order(name: :asc) }
   scope :inactive, -> { where(active: false).order(name: :asc) }
+
+  YEAR_IN_SECONDS = 60 * 60 * 24 * 365
 
   def activate
     update(active: true)
@@ -61,7 +64,9 @@ class Player < ApplicationRecord
   end
 
   def age
-    ((Time.now - birthday.to_time)/(60*60*24*365)).floor
+    return '-' unless birthday
+    seconds_since_birth = Time.now - birthday.to_time
+    (seconds_since_birth / YEAR_IN_SECONDS).floor
   end
 
   # def labels

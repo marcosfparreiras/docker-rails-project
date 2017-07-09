@@ -21,6 +21,7 @@ fi
 # Run server
 
 if [ "$RAILS_ENV" == "development" ]; then
+  rm tmp/pids/server.pid
   bundle exec rails server -e development -b 0.0.0.0 -p 80
 fi
 

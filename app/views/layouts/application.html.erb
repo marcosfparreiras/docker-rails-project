@@ -19,8 +19,7 @@
           <ul class="nav navbar-nav navbar-left">
             <% if current_user.is_a?(Admin) %>
               <li class='navbar-brand'><%= link_to "AE ACADEMY", active_players_path %></li>
-              <li><%= link_to "Active Players", active_players_path %></li>
-              <li><%= link_to "Inactive Players", inactive_players_path %></li>
+              <li><%= link_to "Active Players", active_players_path %></li>              <li><%= link_to "Inactive Players", inactive_players_path %></li>
               <li><%= link_to "Register Player", new_player_path %></li>
               <li><%= link_to "Plans", plans_path %></li>
             <% elsif current_user.is_a?(Player) %>

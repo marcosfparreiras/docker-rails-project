@@ -1,0 +1,5 @@
+<%= form_tag({controller: "items", action: "create"}, method: "post") do %>
+  Nome do novo ítem: <%= text_field_tag('new_item_name') %>
+  <%= hidden_field_tag(:player_id, player.id) %>
+  <%= submit_tag("Criar") %>
+<% end %>

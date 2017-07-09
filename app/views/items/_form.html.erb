@@ -1,0 +1,45 @@
+<%= form_for(item) do |f| %>
+  <% if item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+      <% item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :status %>
+    <%
+      status = [
+        ['Unchecked', '0'],
+        ['Pending', '1'],
+        ['Done', '2'],
+        ['Fail', '3']
+      ]
+    %>
+    <%= select_tag("item[status]", options_for_select(status, item.status)) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :deadline %>
+    <%= f.text_field :deadline %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date_completed %>
+    <%= f.text_field :date_completed %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

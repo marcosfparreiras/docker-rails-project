@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :document_types
   resources :plans
   resources :admins
+  resources :items
 
   resources :players do
     collection do
@@ -20,6 +21,7 @@ Rails.application.routes.draw do
       put 'activate'
       put 'deactivate'
       get 'status'
+      get 'items'
     end
   end
 
