@@ -3,7 +3,7 @@ services:
   db:
     image: postgres
   web:
-    image: macosfparreiras/rails-postgres:beta-0.4
+    image: macosfparreiras/rails-postgres:beta-0.5
     command: scripts/start.sh
     ports:
       - "3000:80"
