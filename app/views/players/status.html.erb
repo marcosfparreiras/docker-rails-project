@@ -7,36 +7,11 @@
     <th><%= header %></th>
   <% end %>
   </tr>
-
-  <tr>
-    <td><span class="glyphicon glyphicon-ok"></span></td>
-    <td>Getting Started</td>
-    <td>Congratualitaions! You began the registration process on this date</td>
-    <td>06/10/2017</td>
-    <td>06/02/2017</td>
-  </tr>
-
-  <tr>
-    <td><span class="glyphicon glyphicon-unchecked"></span></td>
-    <td>Payment</td>
-    <td></td>
-    <td>06/14/2017</td>
-    <td></td>
-  </tr>
-
-  <tr>
-    <td><span class="glyphicon glyphicon-exclamation-sign"></span></td>
-    <td>Online Profile</td>
-    <td>Waiting for approval</td>
-    <td>06/16/2017</td>
-    <td></td>
-  </tr>
-
-  <tr>
-    <td><span class="glyphicon glyphicon-remove"></span></td>
-    <td>Test Score</td>
-    <td>Your score is bellow the minimum</td>
-    <td>06/16/2017</td>
-    <td></td>
-  </tr>
+  <% @player.items.each do |item| %>
+    <td><span class="<%= item.status_glyphicon %>"></span></td>
+    <td><%= item.name %></td>
+    <td><%= item.details %></td>
+    <td><%= item.deadline %></td>
+    <td><%= item.date_completed %></td>
+  <% end %>
 </table>
